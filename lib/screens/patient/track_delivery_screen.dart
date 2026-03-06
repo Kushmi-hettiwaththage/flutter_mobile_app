@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../widgets/gradient_text.dart';
 
 class DeliveryStep {
   final String title;
@@ -53,7 +54,20 @@ class TrackDeliveryScreen extends StatelessWidget {
     ];
 
     return Scaffold(
-      appBar: AppBar(title: const Text('Track Delivery')),
+      appBar: AppBar(
+        title: const GradientText(
+          'Track Delivery',
+          style: TextStyle(
+            fontWeight: FontWeight.w800,
+            fontSize: 22,
+          ),
+          gradient: LinearGradient(
+            colors: [Color(0xFF17509C), Color(0xFF2F80ED)],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+        ),
+      ),
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(

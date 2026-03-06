@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../auth/login_screen.dart';
+import '../../widgets/gradient_text.dart';
 
 class GetStartedScreen extends StatelessWidget {
   const GetStartedScreen({super.key});
@@ -52,13 +53,17 @@ class GetStartedScreen extends StatelessWidget {
                           ),
                         ),
                         const SizedBox(height: 18),
-                        const Text(
+                        const GradientText(
                           'Smart Prescription Tracker',
                           style: TextStyle(
                             fontSize: 30,
                             fontWeight: FontWeight.w800,
                             height: 1.15,
-                            color: Color(0xFF10243E),
+                          ),
+                          gradient: LinearGradient(
+                            colors: [Color(0xFF17509C), Color(0xFF2F80ED)],
+                            begin: Alignment.topLeft,
+                            end: Alignment.bottomRight,
                           ),
                         ),
                         const SizedBox(height: 10),

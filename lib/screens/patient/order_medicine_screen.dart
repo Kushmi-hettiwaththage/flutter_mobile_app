@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import '../../widgets/gradient_text.dart';
 
 class Pharmacy {
   final String name;
@@ -84,7 +85,18 @@ class _OrderMedicineScreenState extends State<OrderMedicineScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Order Medicine'),
+        title: const GradientText(
+          'Order Medicine',
+          style: TextStyle(
+            fontWeight: FontWeight.w800,
+            fontSize: 22,
+          ),
+          gradient: LinearGradient(
+            colors: [Color(0xFF17509C), Color(0xFF2F80ED)],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+        ),
       ),
       body: Column(
         children: [
@@ -290,7 +302,20 @@ class _OrderMedicineDetailsScreenState extends State<OrderMedicineDetailsScreen>
   Widget build(BuildContext context) {
     final pharmacy = widget.pharmacy;
     return Scaffold(
-      appBar: AppBar(title: const Text('Complete Order')),
+      appBar: AppBar(
+        title: const GradientText(
+          'Complete Order',
+          style: TextStyle(
+            fontWeight: FontWeight.w800,
+            fontSize: 22,
+          ),
+          gradient: LinearGradient(
+            colors: [Color(0xFF17509C), Color(0xFF2F80ED)],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+        ),
+      ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Column(
@@ -542,7 +567,20 @@ class OrderCheckoutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Payment & Order Details')),
+      appBar: AppBar(
+        title: const GradientText(
+          'Payment & Order Details',
+          style: TextStyle(
+            fontWeight: FontWeight.w800,
+            fontSize: 22,
+          ),
+          gradient: LinearGradient(
+            colors: [Color(0xFF17509C), Color(0xFF2F80ED)],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+        ),
+      ),
       body: SingleChildScrollView(
         padding: const EdgeInsets.all(16),
         child: Column(

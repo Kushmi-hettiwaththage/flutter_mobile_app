@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../../widgets/gradient_text.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -28,12 +29,16 @@ class _SignupScreenState extends State<SignupScreen> {
                     icon: const Icon(Icons.arrow_back_ios_new_rounded),
                   ),
                   const SizedBox(height: 24),
-                  const Text(
+                  const GradientText(
                     'Create account',
                     style: TextStyle(
                       fontSize: 30,
                       fontWeight: FontWeight.w800,
-                      color: Color(0xFF10243E),
+                    ),
+                    gradient: LinearGradient(
+                      colors: [Color(0xFF17509C), Color(0xFF2F80ED)],
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
                     ),
                   ),
                   const SizedBox(height: 8),
@@ -61,33 +66,51 @@ class _SignupScreenState extends State<SignupScreen> {
                     ),
                     child: Column(
                       children: [
-                        const TextField(
-                          decoration: InputDecoration(
-                            hintText: 'Full name',
-                            prefixIcon: Icon(Icons.person_outline_rounded),
-                          ),
+                        const _ModernInputField(
+                          hintText: 'Full name',
+                          icon: Icons.person_outline_rounded,
                         ),
                         const SizedBox(height: 14),
-                        const TextField(
+                        const _ModernInputField(
+                          hintText: 'Email address',
+                          icon: Icons.mail_outline_rounded,
                           keyboardType: TextInputType.emailAddress,
-                          decoration: InputDecoration(
-                            hintText: 'Email',
-                            prefixIcon: Icon(Icons.mail_outline_rounded),
-                          ),
                         ),
                         const SizedBox(height: 14),
-                        const TextField(
+                        const _ModernInputField(
+                          hintText: 'Password',
+                          icon: Icons.lock_outline_rounded,
                           obscureText: true,
-                          decoration: InputDecoration(
-                            hintText: 'Password',
-                            prefixIcon: Icon(Icons.lock_outline_rounded),
-                          ),
                         ),
                         const SizedBox(height: 14),
                         DropdownButtonFormField<String>(
                           value: role,
-                          decoration: const InputDecoration(
-                            prefixIcon: Icon(Icons.badge_outlined),
+                          style: const TextStyle(
+                            color: Color(0xFF1B3553),
+                            fontWeight: FontWeight.w600,
+                            fontSize: 15,
+                          ),
+                          decoration: InputDecoration(
+                            hintText: 'Select role',
+                            hintStyle: const TextStyle(
+                              color: Color(0xFF7A93B4),
+                              fontWeight: FontWeight.w500,
+                            ),
+                            prefixIcon: Container(
+                              margin: const EdgeInsets.all(9),
+                              width: 34,
+                              height: 34,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(10),
+                                color: const Color(0xFFEFF6FF),
+                              ),
+                              child: const Icon(
+                                Icons.badge_outlined,
+                                color: Color(0xFF2F80ED),
+                                size: 19,
+                              ),
+                            ),
+                            prefixIconConstraints: const BoxConstraints(minWidth: 56),
                           ),
                           items: const [
                             DropdownMenuItem(
@@ -126,6 +149,63 @@ class _SignupScreenState extends State<SignupScreen> {
             ),
           ),
         ],
+      ),
+    );
+  }
+}
+
+class _ModernInputField extends StatelessWidget {
+  final String hintText;
+  final IconData icon;
+  final bool obscureText;
+  final TextInputType keyboardType;
+
+  const _ModernInputField({
+    required this.hintText,
+    required this.icon,
+    this.obscureText = false,
+    this.keyboardType = TextInputType.text,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(16),
+        boxShadow: const [
+          BoxShadow(
+            color: Color(0x0D103A73),
+            blurRadius: 14,
+            offset: Offset(0, 8),
+          ),
+        ],
+      ),
+      child: TextField(
+        obscureText: obscureText,
+        keyboardType: keyboardType,
+        style: const TextStyle(
+          fontWeight: FontWeight.w600,
+          color: Color(0xFF1B3553),
+          fontSize: 15,
+        ),
+        decoration: InputDecoration(
+          hintText: hintText,
+          hintStyle: const TextStyle(
+            color: Color(0xFF7A93B4),
+            fontWeight: FontWeight.w500,
+          ),
+          prefixIcon: Container(
+            margin: const EdgeInsets.all(9),
+            width: 34,
+            height: 34,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(10),
+              color: const Color(0xFFEFF6FF),
+            ),
+            child: Icon(icon, color: const Color(0xFF2F80ED), size: 19),
+          ),
+          prefixIconConstraints: const BoxConstraints(minWidth: 56),
+        ),
       ),
     );
   }

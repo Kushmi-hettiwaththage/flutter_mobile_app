@@ -2,6 +2,7 @@ import 'dart:typed_data';
 
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import '../../widgets/gradient_text.dart';
 
 class PatientProfileScreen extends StatelessWidget {
   const PatientProfileScreen({super.key});
@@ -9,7 +10,20 @@ class PatientProfileScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('My Profile')),
+      appBar: AppBar(
+        title: const GradientText(
+          'My Profile',
+          style: TextStyle(
+            fontWeight: FontWeight.w800,
+            fontSize: 22,
+          ),
+          gradient: LinearGradient(
+            colors: [Color(0xFF17509C), Color(0xFF2F80ED)],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+        ),
+      ),
       body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(

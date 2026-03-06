@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'order_medicine_screen.dart';
 import 'profile_screen.dart';
 import 'track_delivery_screen.dart';
+import '../../widgets/gradient_text.dart';
 
 class PatientHomeScreen extends StatefulWidget {
   const PatientHomeScreen({super.key});
@@ -33,9 +34,17 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
     return Scaffold(
       extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: const Text(
+        title: const GradientText(
           "Patient Dashboard",
-          style: TextStyle(fontWeight: FontWeight.w700),
+          style: TextStyle(
+            fontWeight: FontWeight.w800,
+            fontSize: 22,
+          ),
+          gradient: LinearGradient(
+            colors: [Color(0xFF17509C), Color(0xFF2F80ED)],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
         ),
         backgroundColor: Colors.transparent,
         leading: Builder(
@@ -216,12 +225,16 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
                     ),
                   ),
                   const SizedBox(height: 4),
-                  const Text(
+                  const GradientText(
                     'What do you need today?',
                     style: TextStyle(
-                      color: Color(0xFF10243E),
                       fontSize: 25,
                       fontWeight: FontWeight.w800,
+                    ),
+                    gradient: LinearGradient(
+                      colors: [Color(0xFF17509C), Color(0xFF2F80ED)],
+                      begin: Alignment.topLeft,
+                      end: Alignment.bottomRight,
                     ),
                   ),
                   const SizedBox(height: 18),
@@ -547,7 +560,18 @@ class PrescriptionsScreen extends StatelessWidget {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: const Text("My Prescriptions"),
+          title: const GradientText(
+            "My Prescriptions",
+            style: TextStyle(
+              fontWeight: FontWeight.w800,
+              fontSize: 22,
+            ),
+            gradient: LinearGradient(
+              colors: [Color(0xFF17509C), Color(0xFF2F80ED)],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+          ),
           bottom: const TabBar(
             tabs: [
               Tab(text: "Ongoing"),
@@ -646,7 +670,20 @@ class PharmaciesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text("Nearby Pharmacies")),
+      appBar: AppBar(
+        title: const GradientText(
+          "Nearby Pharmacies",
+          style: TextStyle(
+            fontWeight: FontWeight.w800,
+            fontSize: 22,
+          ),
+          gradient: LinearGradient(
+            colors: [Color(0xFF17509C), Color(0xFF2F80ED)],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+        ),
+      ),
       body: ListView(
         padding: const EdgeInsets.all(14),
         children: const [
