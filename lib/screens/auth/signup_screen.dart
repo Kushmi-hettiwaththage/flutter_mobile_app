@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../widgets/gradient_text.dart';
+import '../patient/patient_home_screen.dart';
+import '../pharmacist/pharmacist_dashboard_screen.dart';
 
 class SignupScreen extends StatefulWidget {
   const SignupScreen({super.key});
@@ -137,7 +139,17 @@ class _SignupScreenState extends State<SignupScreen> {
                         SizedBox(
                           width: double.infinity,
                           child: ElevatedButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              Widget target = const PatientHomeScreen();
+                              if (role == 'Pharmacist') {
+                                target = const PharmacistDashboardScreen();
+                              }
+
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(builder: (_) => target),
+                              );
+                            },
                             child: const Text('Register'),
                           ),
                         ),

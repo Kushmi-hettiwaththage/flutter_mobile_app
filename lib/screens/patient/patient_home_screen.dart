@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'order_medicine_screen.dart';
 import 'profile_screen.dart';
+import 'reminders_screen.dart';
 import 'track_delivery_screen.dart';
 import '../../widgets/gradient_text.dart';
 
@@ -307,7 +308,14 @@ class _PatientHomeScreenState extends State<PatientHomeScreen> {
                           title: "Reminders",
                           subtitle: "Never miss a dose",
                           icon: Icons.alarm_outlined,
-                          onTap: () {},
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => const PatientRemindersScreen(),
+                              ),
+                            );
+                          },
                         ),
                       ],
                     ),
